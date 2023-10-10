@@ -1,5 +1,9 @@
 package com.aplicaoestagio.aplicacaoestagio.services;
 
+import com.aplicaoestagio.aplicacaoestagio.entidades.Aluno;
+import com.aplicaoestagio.aplicacaoestagio.entidades.Empresa;
+import com.aplicaoestagio.aplicacaoestagio.entidades.Estagio;
+import com.aplicaoestagio.aplicacaoestagio.entidades.Orientador;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
