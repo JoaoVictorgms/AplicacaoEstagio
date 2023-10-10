@@ -1,6 +1,9 @@
 package com.aplicaoestagio.aplicacaoestagio.services;
 
 import com.aplicaoestagio.aplicacaoestagio.entidades.Aluno;
+import com.aplicaoestagio.aplicacaoestagio.entidades.Empresa;
+import com.aplicaoestagio.aplicacaoestagio.entidades.Orientador;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -39,10 +42,26 @@ public class AlunoService {
         return query.getResultList();
     }
 
+    public Aluno buscarAlunoPorId(Long alunoId) {
+        return entityManager.find(Aluno.class, alunoId);
+    }
+
     public Aluno buscarAlunoPorMatricula(String matricula) {
         TypedQuery<Aluno> query = entityManager.createQuery("SELECT a FROM Aluno a WHERE a.matricula = :matricula", Aluno.class);
         query.setParameter("matricula", matricula);
         List<Aluno> result = query.getResultList();
         return result.isEmpty() ? null : result.get(0);
+    }
+
+    public List<Aluno> listarAlunosPorOrientador(Orientador orientador) {
+        TypedQuery<Aluno> query = entityManager.createQuery("SELECT a FROM Aluno a WHERE a.orientador = :orientador", Aluno.class);
+        query.setParameter("orientador", orientador);
+        return query.getResultList();
+    }
+
+    public List<Aluno> listarAlunosPorEmpresa(Empresa empresa) {
+        TypedQuery<Aluno> query = entityManager.createQuery("SELECT a FROM Aluno a WHERE a.empresa = :empresa", Aluno.class);
+        query.setParameter("empresa", empresa);
+        return query.getResultList();
     }
 }

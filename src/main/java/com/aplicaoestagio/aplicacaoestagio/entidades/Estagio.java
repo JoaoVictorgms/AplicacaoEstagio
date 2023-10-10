@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Estagio {
@@ -15,6 +16,40 @@ public class Estagio {
     private LocalDate fimEstagio;
     private int cargaHoraria;
     private String status;
+    
+    
+    @ManyToOne
+    private Aluno aluno; 
+
+    @ManyToOne
+    private Empresa empresa; 
+
+    @ManyToOne
+    private Orientador orientador; 
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public Orientador getOrientador() {
+        return orientador;
+    }
+
+    public void setOrientador(Orientador orientador) {
+        this.orientador = orientador;
+    }
 
     public Long getId() {
         return id;
