@@ -1,10 +1,12 @@
 package com.aplicaoestagio.aplicacaoestagio.entidades;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno {
@@ -14,39 +16,25 @@ public class Aluno {
     private String nome;
     private String matricula;
 
-    public Orientador getOrientador() {
-        return orientador;
-    }
-
-    public void setOrientador(Orientador orientador) {
-        this.orientador = orientador;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-    
     @ManyToOne
     private Orientador orientador; 
 
     @ManyToOne
     private Empresa empresa;
 
-   
+    @OneToMany(mappedBy = "aluno")
+    private List<Estagio> estagios;
+
     public Aluno() {
     }
 
-  
     public Aluno(String nome, String matricula) {
         this.nome = nome;
         this.matricula = matricula;
     }
 
-    // Getters e setters
+    
+
     public Long getId() {
         return id;
     }
@@ -69,5 +57,29 @@ public class Aluno {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public Orientador getOrientador() {
+        return orientador;
+    }
+
+    public void setOrientador(Orientador orientador) {
+        this.orientador = orientador;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public List<Estagio> getEstagios() {
+        return estagios;
+    }
+
+    public void setEstagios(List<Estagio> estagios) {
+        this.estagios = estagios;
     }
 }

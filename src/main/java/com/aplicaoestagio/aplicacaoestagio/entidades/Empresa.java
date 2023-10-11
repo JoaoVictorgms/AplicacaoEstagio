@@ -14,17 +14,17 @@ public class Empresa {
     private Long id;
     private String nome;
 
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
-
     @OneToMany(mappedBy = "empresa")
     private List<Aluno> alunos; 
 
+    public Empresa() {
+    }
+
+    public Empresa(String nome) {
+        this.nome = nome;
+    }
+
+    // Getters e setters
     public Long getId() {
         return id;
     }
@@ -41,11 +41,11 @@ public class Empresa {
         this.nome = nome;
     }
 
-   
-    public Empresa() {
+    public List<Aluno> getAlunos() {
+        return alunos;
     }
 
-    public Empresa(String nome) {
-        this.nome = nome;
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
     }
 }

@@ -1,5 +1,8 @@
 /home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/entidades/Aluno.java
 /home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/entidades/Orientador.java
+/home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/services/EstagioService.java
+/home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/services/AlunoService.java
 /home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/entidades/Estagio.java
+/home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/services/InsercaoService.java
 /home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/AplicacaoEstagio.java
 /home/jvictor/NetBeansProjects/AplicacaoEstagio/src/main/java/com/aplicaoestagio/aplicacaoestagio/entidades/Empresa.java
