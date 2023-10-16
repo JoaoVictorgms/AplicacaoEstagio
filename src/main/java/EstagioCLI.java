@@ -1,4 +1,4 @@
-ackage com.aplicaoestagio.aplicacaoestagio;
+package com.aplicaoestagio.aplicacaoestagio;
 
 import com.aplicaoestagio.aplicacaoestagio.services.AlunoService;
 import com.aplicaoestagio.aplicacaoestagio.services.EmpresaService;
