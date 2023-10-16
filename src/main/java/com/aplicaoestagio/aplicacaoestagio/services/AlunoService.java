@@ -7,6 +7,10 @@ import com.aplicaoestagio.aplicacaoestagio.entidades.Orientador;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import javax.persistence.PersistenceException;
+import javax.transaction.Transactional;
+
+@Transactional
 
 public class AlunoService {
 
@@ -16,26 +20,41 @@ public class AlunoService {
         this.entityManager = entityManager;
     }
 
-    public void inserirAluno(Aluno aluno) {
+   public void inserirAluno(Aluno aluno) {
+    try {
         entityManager.getTransaction().begin();
         entityManager.persist(aluno);
         entityManager.getTransaction().commit();
+    } catch (PersistenceException e) {
+        System.err.println("Erro ao persistir aluno: " + e.getMessage());
+        entityManager.getTransaction().rollback();
     }
+}
 
-    public void atualizarAluno(Aluno aluno) {
+     public void atualizarAluno(Aluno aluno) {
+    try {
         entityManager.getTransaction().begin();
         entityManager.merge(aluno);
         entityManager.getTransaction().commit();
+    } catch (PersistenceException e) {
+        System.err.println("Erro ao atualizar aluno: " + e.getMessage());
+        entityManager.getTransaction().rollback();
     }
+}
 
-    public void removerAluno(Long alunoId) {
+     public void removerAluno(Long alunoId) {
+    try {
         entityManager.getTransaction().begin();
         Aluno aluno = entityManager.find(Aluno.class, alunoId);
         if (aluno != null) {
             entityManager.remove(aluno);
         }
         entityManager.getTransaction().commit();
+    } catch (PersistenceException e) {
+        System.err.println("Erro ao remover aluno: " + e.getMessage());
+        entityManager.getTransaction().rollback();
     }
+}
 
     public List<Aluno> listarAlunos() {
         TypedQuery<Aluno> query = entityManager.createQuery("SELECT a FROM Aluno a", Aluno.class);

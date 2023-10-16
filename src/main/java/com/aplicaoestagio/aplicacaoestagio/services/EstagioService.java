@@ -8,7 +8,9 @@ import com.aplicaoestagio.aplicacaoestagio.entidades.Estagio;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import javax.transaction.Transactional;
 
+@Transactional
 public class EstagioService {
 
     private EntityManager entityManager;

@@ -1,8 +1,9 @@
 com/aplicaoestagio/aplicacaoestagio/entidades/Orientador.class
 com/aplicaoestagio/aplicacaoestagio/entidades/Estagio.class
 com/aplicaoestagio/aplicacaoestagio/services/AlunoService.class
+com/aplicaoestagio/aplicacaoestagio/services/OrientadorService.class
+com/aplicaoestagio/aplicacaoestagio/services/EmpresaService.class
 com/aplicaoestagio/aplicacaoestagio/entidades/Aluno.class
 com/aplicaoestagio/aplicacaoestagio/entidades/Empresa.class
-com/aplicaoestagio/aplicacaoestagio/AplicacaoEstagio.class
 com/aplicaoestagio/aplicacaoestagio/services/EstagioService.class
 com/aplicaoestagio/aplicacaoestagio/services/InsercaoService.class
