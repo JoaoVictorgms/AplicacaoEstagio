@@ -32,6 +32,7 @@ public class EstagioCLI {
         boolean exit = false;
 
         while (!exit) {
+            System.out.println("PLATAFORMA PARA GERIR ALUNOS:");
             System.out.println("Escolha uma ação:");
             System.out.println("1 - Inserir Aluno");
             System.out.println("2 - Atualizar Aluno");
