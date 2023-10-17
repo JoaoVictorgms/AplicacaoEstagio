@@ -50,7 +50,7 @@ public class EstagioCLI {
                     break;
                 case 2:
                     // Atualizar Aluno
-                    Aluno alunoParaAtualizar = criarAlunoViaInputDoUsuario();
+                    Aluno alunoParaAtualizar = atualizarAlunoViaInputDoUsuario();
                     alunoService.atualizarAluno(alunoParaAtualizar);
                     break;
                 case 3:
@@ -59,7 +59,7 @@ public class EstagioCLI {
                     break;
                 case 4:
                     // Listar Alunos
-                    alunoService.listarAlunos();
+                    listarAlunos();
                     break;
                 case 5:
                     // Filtrar Estágio por Matrícula
@@ -80,10 +80,14 @@ public class EstagioCLI {
         String nome = scanner.nextLine();
         System.out.println("Informe a matrícula do aluno: ");
         String matricula = scanner.nextLine();
+        System.out.println("Informe o estagio do aluno: ");
+        String estagio = scanner.nextLine();
+
+
 
         return new Aluno(nome, matricula);
     }
-    private void atualizarAlunoViaInputDoUsuario() {
+    private Aluno atualizarAlunoViaInputDoUsuario() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Informe a matrícula do aluno que você deseja atualizar: ");
         String matricula = scanner.nextLine();
@@ -91,15 +95,13 @@ public class EstagioCLI {
         // Verifique se o aluno existe
         Aluno aluno = alunoService.buscarAlunoPorMatricula(matricula);
         if (aluno == null) {
-            System.out.println("Aluno não encontrado com a matrícula informada.");
-            return;
+             System.out.println("Aluno não encontrado com a matrícula informada.");
         }
 
-        // Solicite ao usuário os novos dados do aluno
-        System.out.println("Informe os novos dados do aluno:");
+         System.out.println("Informe os novos dados do aluno:");
         System.out.println("Nome: ");
         String nome = scanner.nextLine();
-        System.out.println("Outros atributos do aluno: "); // Adicione os atributos do aluno
+        System.out.println("Outros atributos do aluno: ");
         // Atualize os dados do aluno
         aluno.setNome(nome);
         // Atualize outros atributos, se houver, aqui.
@@ -107,6 +109,7 @@ public class EstagioCLI {
         // Salve as alterações no banco de dados
         alunoService.atualizarAluno(aluno);
         System.out.println("Aluno atualizado com sucesso.");
+        return new Aluno(nome,matricula);
     }
 
     private void removerAluno() {
@@ -134,8 +137,8 @@ public class EstagioCLI {
         } else {
             System.out.println("Lista de Alunos:");
             for (Aluno aluno : alunos) {
-                System.out.println("ID: " + aluno.getId() + ", Nome: " + aluno.getNome() + ", Matrícula: " + aluno.getMatricula());
-                // Liste outros atributos do aluno, se houver.
+                System.out.println("ID: " + aluno.getId() + ", Nome: " + aluno.getNome() + ", Matrícula: "
+                        + aluno.getMatricula() + "Empresa: " +aluno.getEmpresa() + "Estagio: " +aluno.getEstagios());
             }
         }
     }
