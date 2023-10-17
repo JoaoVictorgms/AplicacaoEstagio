@@ -37,8 +37,7 @@ public class EstagioCLI {
             System.out.println("2 - Atualizar Aluno");
             System.out.println("3 - Remover Aluno");
             System.out.println("4 - Listar Alunos");
-            System.out.println("5 - Filtrar Estágio por Matrícula");
-            System.out.println("0 - Sair");
+             System.out.println("0 - Sair");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -61,10 +60,6 @@ public class EstagioCLI {
                     // Listar Alunos
                     listarAlunos();
                     break;
-                case 5:
-                    // Filtrar Estágio por Matrícula
-                    filtrarEstagioPorMatricula();
-                    break;
                 case 0:
                     exit = true;
                     break;
@@ -81,11 +76,12 @@ public class EstagioCLI {
         System.out.println("Informe a matrícula do aluno: ");
         String matricula = scanner.nextLine();
         System.out.println("Informe o estagio do aluno: ");
-        String estagio = scanner.nextLine();
+        String estagios = scanner.nextLine();
+        System.out.println("Informe a empresa do aluno: ");
+        String empresa = scanner.nextLine();
 
 
-
-        return new Aluno(nome, matricula);
+        return new Aluno(nome, matricula, estagios, empresa);
     }
     private Aluno atualizarAlunoViaInputDoUsuario() {
         Scanner scanner = new Scanner(System.in);
@@ -101,15 +97,14 @@ public class EstagioCLI {
          System.out.println("Informe os novos dados do aluno:");
         System.out.println("Nome: ");
         String nome = scanner.nextLine();
-        System.out.println("Outros atributos do aluno: ");
-        // Atualize os dados do aluno
         aluno.setNome(nome);
-        // Atualize outros atributos, se houver, aqui.
-
-        // Salve as alterações no banco de dados
+        System.out.println("estagio: ");
+        String estagios = scanner.nextLine();
+        System.out.println("empresa: ");
+        String empresa = scanner.nextLine();
         alunoService.atualizarAluno(aluno);
         System.out.println("Aluno atualizado com sucesso.");
-        return new Aluno(nome,matricula);
+        return new Aluno(nome, matricula, estagios, empresa);
     }
 
     private void removerAluno() {
@@ -143,14 +138,7 @@ public class EstagioCLI {
         }
     }
 
-    private void filtrarEstagioPorMatricula() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Informe a matrícula do aluno para filtrar estágios: ");
-        String matricula = scanner.nextLine();
 
-        // Use a matrícula para filtrar estágios
-        estagioService.selecionarEstagioPorAlunoMatricula(matricula);
-    }
 
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("aplicacao-estagio");
