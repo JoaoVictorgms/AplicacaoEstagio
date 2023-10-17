@@ -24,16 +24,18 @@ public class Aluno {
 
     @OneToMany(mappedBy = "aluno")
     private List<Estagio> estagios;
+ 
 
-    public Aluno() {
-    }
-
-    public Aluno(String nome, String matricula) {
+    public Aluno(String nome, String matricula, Empresa empresa, List<Estagio> estagios) {
         this.nome = nome;
         this.matricula = matricula;
+        this.estagios = estagios;
+        this.empresa = empresa;
     }
 
-    
+    public Aluno(String nome, String matricula, Empresa empresa, Estagio estagios) {
+    }
+
 
     public Long getId() {
         return id;
@@ -83,3 +85,4 @@ public class Aluno {
         this.estagios = estagios;
     }
 }
+
